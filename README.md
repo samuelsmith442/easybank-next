@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Easybank Landing Page
 
-## Getting Started
+![Easybank Preview](./public/preview.jpg)
 
-First, run the development server:
+## 🏦 About
 
+Easybank is a modern landing page for a digital banking platform, built with Next.js 15, React 19, and TailwindCSS. This project showcases a responsive, accessible, and performant web application that follows modern web development best practices.
+
+## ✨ Features
+
+- **Modern Stack**: Built with Next.js 15, React 19, and TypeScript
+- **Responsive Design**: Fully responsive layout that works on all screen sizes
+- **Performance Optimized**: Leverages Next.js features for optimal loading speeds
+- **Accessibility**: WCAG compliant with semantic HTML and ARIA attributes
+- **Modern Styling**: Utilizes TailwindCSS for a utility-first styling approach
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (Latest LTS version recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/easybank-next.git
+cd easybank-next
+```
+
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Built With
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [Next.js](https://nextjs.org/) - React framework for production
+- [React](https://reactjs.org/) - JavaScript library for user interfaces
+- [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript
+- [ESLint](https://eslint.org/) - Code linting
+- [Turbopack](https://turbo.build/pack) - Incremental bundler
 
-## Learn More
+## 📱 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+easybank-next/
+├── public/          # Static assets
+├── src/
+│   ├── app/        # App router pages
+│   ├── components/ # React components
+│   └── styles/     # Global styles
+├── tailwind.config.ts
+└── next.config.ts
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Design
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The design follows a clean, modern aesthetic with a focus on:
+- Clear typography and hierarchy
+- Accessible color contrast
+- Smooth animations and transitions
+- Consistent spacing and alignment
 
-## Deploy on Vercel
+## 📄 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project is open source and available under the [MIT License](LICENSE).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🙏 Acknowledgments
+
+- Design by [Frontend Mentor](https://www.frontendmentor.io/)
+- Icons from [Public Domain]
+- Images from [Easybank Challenge Assets]

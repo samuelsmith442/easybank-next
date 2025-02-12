@@ -2,100 +2,181 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      {/* Hero Section */}
+      <section className="relative bg-neutral-veryLightGray overflow-visible min-h-screen md:min-h-0">
+        {/* Desktop Background */}
+        <div className="hidden md:block absolute right-0 w-[50%] h-[100%]">
+          <Image
+            src="/images/bg-intro-desktop.svg"
+            alt=""
+            fill
+            className="object-cover object-left scale-[1.6] translate-x-[20%] translate-y-[-15%]"
+            priority
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+
+        {/* Mobile Background */}
+        <div className="md:hidden absolute w-full h-[50vh] top-0">
+          <div className="relative w-full h-full">
+            <Image
+              src="/images/bg-intro-mobile.svg"
+              alt=""
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+
+        {/* Mockups Image */}
+        <div className="absolute z-30 w-full md:w-[767px] h-[423px] md:h-[939px] -top-16 md:-top-[150px] left-1/2 -translate-x-1/2 md:left-auto md:right-[-120px] md:translate-x-0">
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/images/image-mockups.png"
+            alt="Mobile app mockups"
+            fill
+            className="object-contain"
+            priority
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+
+        {/* Content Container */}
+        <div className="container relative z-20 mx-auto px-5 pt-[360px] pb-20 md:py-[170px]">
+          <div className="text-center md:text-left md:w-[450px] max-w-[400px] mx-auto md:mx-0">
+            <h1 className="text-[40px] leading-[1.2] md:text-5xl font-light text-primary-darkBlue mb-4 md:mb-6">
+              Next generation digital banking
+            </h1>
+            <p className="text-[15px] leading-relaxed text-neutral-grayishBlue mb-8 opacity-70">
+              Take your financial life online. Your Easybank account will be a one-stop-shop 
+              for spending, saving, budgeting, investing, and much more.
+            </p>
+            <button className="bg-gradient-to-r from-primary-limeGreen to-primary-brightCyan text-neutral-white px-8 py-3 rounded-full hover:opacity-80">
+              Request Invite
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="relative z-10 bg-neutral-lightGrayishBlue py-16 md:py-24">
+        <div className="container mx-auto px-5">
+          <div className="text-center md:text-left max-w-[400px] md:max-w-none mx-auto md:mx-0 mb-14 md:mb-16">
+            <h2 className="text-[32px] md:text-[36px] leading-tight font-light text-primary-darkBlue mb-5">
+              Why choose Easybank?
+            </h2>
+            <p className="text-[15px] leading-relaxed text-neutral-grayishBlue opacity-70">
+              We leverage Open Banking to turn your bank account into your financial hub.
+              Control your financial life like never before.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
+            {features.map((feature, index) => (
+              <div key={index} className="text-center md:text-left">
+                <div className="flex justify-center md:justify-start mb-6 md:mb-8">
+                  <Image
+                    src={feature.icon}
+                    alt={feature.title}
+                    width={72}
+                    height={72}
+                  />
+                </div>
+                <h3 className="text-[20px] font-light text-primary-darkBlue mb-4">
+                  {feature.title}
+                </h3>
+                <p className="text-[15px] leading-relaxed text-neutral-grayishBlue opacity-70">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Articles Section */}
+      <section className="bg-neutral-veryLightGray py-16 md:py-24">
+        <div className="container mx-auto px-5">
+          <h2 className="text-[32px] md:text-[36px] leading-tight font-light text-primary-darkBlue mb-8 md:mb-10 text-center md:text-left">
+            Latest Articles
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {articles.map((article, index) => (
+              <article key={index} className="bg-neutral-white rounded-lg overflow-hidden">
+                <div className="relative aspect-[1.66] w-full">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6 md:p-8">
+                  <span className="text-[10px] text-neutral-grayishBlue">
+                    By {article.author}
+                  </span>
+                  <h3 className="text-primary-darkBlue hover:text-primary-limeGreen cursor-pointer mt-2 mb-2 text-[16px] leading-tight">
+                    {article.title}
+                  </h3>
+                  <p className="text-[13px] leading-relaxed text-neutral-grayishBlue">
+                    {article.excerpt}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
+
+const features = [
+  {
+    icon: "/images/icon-online.svg",
+    title: "Online Banking",
+    description: "Our modern web and mobile applications allow you to keep track of your finances wherever you are in the world.",
+  },
+  {
+    icon: "/images/icon-budgeting.svg",
+    title: "Simple Budgeting",
+    description: "See exactly where your money goes each month. Receive notifications when you're close to hitting your limits.",
+  },
+  {
+    icon: "/images/icon-onboarding.svg",
+    title: "Fast Onboarding",
+    description: "We don't do branches. Open your account in minutes online and start taking control of your finances right away.",
+  },
+  {
+    icon: "/images/icon-api.svg",
+    title: "Open API",
+    description: "Manage your savings, investments, pension, and much more from one account. Tracking your money has never been easier.",
+  },
+];
+
+const articles = [
+  {
+    image: "/images/image-currency.jpg",
+    author: "Claire Robinson",
+    title: "Receive money in any currency with no fees",
+    excerpt: "The world is getting smaller and we're becoming more mobile. So why should you be forced to only receive money in a single …",
+  },
+  {
+    image: "/images/image-restaurant.jpg",
+    author: "Wilson Hutton",
+    title: "Treat yourself without worrying about money",
+    excerpt: "Our simple budgeting feature allows you to separate out your spending and set realistic limits each month. That means you …",
+  },
+  {
+    image: "/images/image-plane.jpg",
+    author: "Wilson Hutton",
+    title: "Take your Easybank card wherever you go",
+    excerpt: "We want you to enjoy your travels. This is why we don't charge any fees on purchases while you're abroad. We'll even show you …",
+  },
+  {
+    image: "/images/image-confetti.jpg",
+    author: "Claire Robinson",
+    title: "Our invite-only Beta accounts are now live!",
+    excerpt: "After a lot of hard work by the whole team, we're excited to launch our closed beta. It's easy to request an invite through the site ...",
+  },
+];
