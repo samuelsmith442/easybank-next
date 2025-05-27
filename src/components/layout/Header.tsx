@@ -1,18 +1,35 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <header className="relative z-50 bg-neutral-white">
+    <motion.header 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+      className={`fixed w-full transition-all duration-300 z-50 bg-neutral-white ${
+        isScrolled ? 'shadow-lg' : ''
+      }`}>
       <div className="container mx-auto px-4 py-6">
         <nav className="flex items-center justify-between">
           <Link href="/">
@@ -26,7 +43,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-6 lg:space-x-8">
             <Link href="/" className="text-neutral-grayishBlue hover:text-primary-darkBlue">
               Home
             </Link>
@@ -45,10 +62,11 @@ export default function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
+          <motion.button
             className="md:hidden"
             onClick={toggleMenu}
             aria-label="Toggle menu"
+            whileTap={{ scale: 0.9 }}
           >
             <Image
               src={`/images/icon-${isMenuOpen ? 'close' : 'hamburger'}.svg`}
@@ -56,17 +74,28 @@ export default function Header() {
               width={24}
               height={24}
             />
-          </button>
+          </motion.button>
 
           {/* Request Invite Button */}
-          <button className="hidden md:block bg-gradient-to-r from-primary-limeGreen to-primary-brightCyan text-neutral-white px-8 py-3 rounded-full hover:opacity-80">
+          <motion.button 
+            className="hidden md:block bg-gradient-to-r from-primary-limeGreen to-primary-brightCyan text-neutral-white px-6 py-2 md:px-7 md:py-2.5 lg:px-8 lg:py-3 rounded-full hover:opacity-80"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             Request Invite
-          </button>
+          </motion.button>
         </nav>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="absolute top-20 left-4 right-4 bg-neutral-white p-8 rounded-lg shadow-lg md:hidden">
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div 
+              className="absolute top-20 left-4 right-4 bg-neutral-white p-8 rounded-lg shadow-lg md:hidden"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
+            >
             <div className="flex flex-col space-y-6 text-center">
               <Link href="/" className="text-primary-darkBlue">
                 Home
@@ -84,9 +113,10 @@ export default function Header() {
                 Careers
               </Link>
             </div>
-          </div>
-        )}
+          </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </header>
+    </motion.header>
   );
 }
